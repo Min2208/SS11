@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game doan so</title>
+</head>
+<body>
+<script>
+
+    let arrName=[];
+    for (let i=0;i<100;i++){
+        arrName.push(Math.floor(Math.random()*100));
+    }
+    console.log(arrName);
+    console.log(linearSearch(arrName,15));
+    console.log(binarySearch(arrName,15));
+    function linearSearch(arr,number) {
+        let count=0;
+        for (let i=0;i<arr.length;i++){
+            count++;
+            if (arr[i]==number){
+                return count;
+            }
+        }
+        return -1;
+        
+    }
+    function binarySearch(arr,number) {
+        let count=0;
+        let checkArr=arr;
+        checkArr.sort(function (a,b) {
+            return a-b;
+        });
+        console.log(checkArr);
+        let min=0;
+        let max=checkArr.length-1;
+        let mid=0;
+        while(min<=max) {
+            mid=Math.floor((min+max)/2);
+            if (checkArr[mid]==number){
+                count++;
+                return count;
+            }else if (checkArr[mid]<number){
+                count++;
+                min=mid+1;
+
+            }else {
+                count++;
+                max=mid-1;
+            }
+        }
+        return -1;
+
+    }
+</script>
+</body>
+</html>

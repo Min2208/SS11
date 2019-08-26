@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra mang dien thoai</title>
+</head>
+<body>
+<script>
+    let arrPhone=['0398620026','0902184871','0986505878','0897777777','0881235464'];
+    console.log(checkViettelPhone(arrPhone));
+    function checkViettelPhone(arr){
+        let result=[];
+        let regexp=/^([0][9][678][0-9]{7}|[0][3][2-9][0-9]{7}|[0][8][9][0-9]{7})$/;
+        for (let i=0;i<arr.length;i++){
+            if (regexp.test(arr[i])){
+                result.push(arr[i]);
+            }
+        }
+        return result;
+
+    }
+</script>
+</body>
+</html>
