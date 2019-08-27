@@ -11,9 +11,10 @@
     for (let i=0;i<100;i++){
         arrName.push(Math.floor(Math.random()*100));
     }
-    console.log(arrName);
-    console.log(linearSearch(arrName,15));
-    console.log(binarySearch(arrName,15));
+
+    console.log(linearSearch(arrName,82));
+    console.log(binarySearch(arrName,82));
+    gameBinarySearch(arrName,82);
     function linearSearch(arr,number) {
         let count=0;
         for (let i=0;i<arr.length;i++){
@@ -43,13 +44,35 @@
             }else if (checkArr[mid]<number){
                 count++;
                 min=mid+1;
-
             }else {
                 count++;
                 max=mid-1;
             }
         }
         return -1;
+    }
+    function gameBinarySearch(arr,number) {
+        let checkArr=arr;
+        checkArr.sort(function (a,b) {
+            return a-b;
+        });
+        console.log(checkArr);
+        let min=0;
+        let max=checkArr.length-1;
+        while(min<=max) {
+            let mid=parseInt(prompt("hay nhap so ban muon doan"));
+            if (mid==number){
+                alert("You win");
+            }else if (mid<number){
+                alert('too low');
+                min=mid+1;
+                console.log(min);
+            }else {
+                alert('too high');
+                max=mid-1;
+                console.log(max);
+            }
+        }
 
     }
 </script>
